@@ -9,21 +9,34 @@
       <p class="text-sm text-gray-500 mb-2">Course ID: {{ course.id }}</p>
 
       <!-- Progress Bar -->
-      <div class="w-full bg-gray-200 h-3 rounded-full">
+      <div class="w-full lg:[width:20rem] bg-gray-200 h-3 rounded-full">
         <div class="bg-blue-500 h-3 rounded-full" :style="{ width: course.progress + '%' }"></div>
       </div>
       <p class="text-sm mt-1 text-gray-600">{{ course.progress }}% completed</p>
+
+      <div class="flex gap-6 mt-3 cursor-pointer">
+        <div class="bg-blue-400 py-1 px-2 rounded-lg hover:bg-blue-600 hover:text-white"
+             @click="editCourse">
+          Edit
+        </div>
+        <div class="bg-red-400 py-1 px-2 rounded-lg hover:bg-red-600 hover:text-white">Delete</div>
+      </div>
     </div>
   </div>
 </template>
 
-<script >
+<script>
 export default {
   props: {
-  course: {
-    type: Object,
-    required: true
+    course: {
+      type: Object,
+      required: true
+    }
+  },
+
+  methods: {
+    editCourse() {
+    }
   }
-}
 }
 </script>

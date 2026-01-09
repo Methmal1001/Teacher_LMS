@@ -19,12 +19,48 @@
     </div>
 
     <!-- Courses Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-      <CourseCard 
+    <div class="grid grid-cols-1 gap-6">
+      <!-- <CourseCard 
         v-for="course in filteredAndSortedCourses" 
         :key="course.id" 
         :course="course" 
-      />
+      /> -->
+      <div class="grid grid-cols-1 gap-6">
+        <div v-for="course in filteredAndSortedCourses" :key="course.id" class="bg-white shadow-md rounded-lg p-4 w-full flex flex-col sm:flex-row items-center gap-4 hover:shadow-lg transition-shadow">
+          <!-- Course Image -->
+          <img :src="course.image" alt="Course Image" class="w-full sm:w-32 h-24 object-cover rounded-lg" />
+
+          <!-- Course Details -->
+          <div class="flex-1 w-full">
+            <h3 class="font-semibold text-lg mb-1">{{ course.name }}</h3>
+            <p class="text-sm text-gray-500 mb-2">Course ID: {{ course.id }}</p>
+
+            <!-- Progress Bar -->
+            <div class="w-full lg:[width:20rem] bg-gray-200 h-3 rounded-full">
+              <div class="bg-blue-500 h-3 rounded-full" :style="{ width: course.progress + '%' }"></div>
+            </div>
+            <p class="text-sm mt-1 text-gray-600">{{ course.progress }}% completed</p>
+
+            <div
+            v-show="true"
+            class="flex gap-6 mt-3 cursor-pointer">
+              <div class="bg-blue-400 py-1 px-2 rounded-lg hover:bg-blue-600 hover:text-white"
+                  @click="editCourse(course)">
+                Edit
+              </div>
+              <div
+              v-show="null" 
+              class="bg-red-400 py-1 px-2 rounded-lg hover:bg-red-600 hover:text-white">
+                Delete</div>
+            </div>
+          </div>
+        </div>
+
+        <div v-if="filteredAndSortedCourses.length === 0" class="text-gray-500 text-center py-10 col-span-full">
+          No courses found.
+        </div>
+      </div>
+
       <div v-if="filteredAndSortedCourses.length === 0" class="text-gray-500 text-center py-10 col-span-full">
         No courses found.
       </div>
@@ -33,6 +69,7 @@
 </template>
 
 <script>
+import { ref, computed } from 'vue'
 import CourseCard from '~/components/coursecard.vue'
 
 export default {
@@ -55,23 +92,29 @@ export default {
   },
 
   computed: {
-    filteredAndSortedCourses() {
-      // Filter by search query
-      let filtered = this.courses.filter(course => {
-        const query = this.searchQuery.toLowerCase()
-        return course.name.toLowerCase().includes(query) || course.id.toLowerCase().includes(query)
-      })
+      filteredAndSortedCourses() {
+        let filtered = this.courses.filter(course => {
+          const query = this.searchQuery.toLowerCase()
+          return course.name.toLowerCase().includes(query) || course.id.toLowerCase().includes(query)
+        })
 
-      // Sort
-      if (this.sortBy === 'name') {
-        filtered.sort((a, b) => a.name.localeCompare(b.name))
-      } else if (this.sortBy === 'id') {
-        filtered.sort((a, b) => a.id.localeCompare(b.id))
+        if (this.sortBy === 'name') filtered.sort((a,b) => a.name.localeCompare(b.name))
+        else if (this.sortBy === 'id') filtered.sort((a,b) => a.id.localeCompare(b.id))
+
+        return filtered
       }
+    },
 
-      return filtered
+    methods: {
+      editCourse(course) {
+        // Use this.$router in Options API, not useRouter()
+        this.$router.push({
+          path: '/admin/index',
+          query: { id: course.id, name: course.name }
+        })
+        console.log(`Editing course: ${course.name}`);
+      }
     }
-  }
 }
 </script>
 
