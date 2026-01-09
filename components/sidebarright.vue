@@ -1,37 +1,77 @@
 <template>
-  <aside class="w-85 bg-gray-800 text-gray-100 p-4 flex flex-col space-y-4">
-    <!-- <nav>
-      <ul class="space-y-3">
-        <li class="hover:bg-gray-700 px-3 py-2 rounded cursor-pointer">Upcoming Events</li>
-        <li class="hover:bg-gray-700 px-3 py-2 rounded cursor-pointer">Calendar</li>
-        <li class="hover:bg-gray-700 px-3 py-2 rounded cursor-pointer">Due Date Reminders</li>
-      </ul>
-    </nav> -->
+  <aside
+    class="w-full lg:w-64
+           bg-gray-800 text-gray-100
+           p-3 sm:p-4
+           flex flex-col space-y-4"
+  >
 
-    <div class="bg-gray-200 border-lg p-5 text-gray-600 rounded-lg">
-      <div class="font-bold text-lg">Upcoming Events</div>
-      <div class="py-2">Nearly Due Activities</div>
-      <div class="ml-5">
-        <div class="py-2 cursor-pointer">
-          <button class="bg-gray-300 px-2 py-2 rounded hover:text-white hover:bg-gray-700 transition duration-200 w-64 text-left break-words">
-            <a href="#">ABC-1019-Assignment </a>
-          </button>
-        </div>
-        <div class="py-2">
-          <button class="bg-gray-300 px-2 py-2 rounded hover:text-white hover:bg-gray-700 transition duration-200 w-64 text-left break-words">
-            <a href="#">EEI-1909-Introduction to Java LAB report</a>
-          </button>
-        </div>
-        <div class="py-2">
-          <button class="bg-gray-300 px-2 py-2 rounded hover:text-white hover:bg-gray-700 transition duration-200 w-64 text-left break-words">
-            <a href="#">AMD-5680-Introduction to Python</a>
-          </button>
-        </div>
-        <div class="py-2">
-          <button class="bg-gray-300 px-2 py-2 rounded hover:text-white hover:bg-gray-700 transition duration-200 w-64 text-left break-words">
-            <a href="#">DDK-0097-Mathematical Operations</a>
-          </button>
-        </div>
+    <!-- Card -->
+    <div class="bg-gray-200 p-4 sm:p-5 text-gray-700 rounded-lg">
+
+      <!-- Titles -->
+      <div class="font-bold text-lg mb-1">
+        Upcoming Events
+      </div>
+      <div class="text-sm font-medium mb-3">
+        Nearly Due Activities
+      </div>
+
+      <!-- Event List -->
+      <div class="space-y-2">
+
+        <button
+          class="w-full
+                 bg-gray-300
+                 px-3 py-2
+                 rounded
+                 text-left text-sm
+                 break-words
+                 hover:text-white hover:bg-gray-700
+                 transition duration-200"
+        >
+          ABC-1019 – Assignment
+        </button>
+
+        <button
+          class="w-full
+                 bg-gray-300
+                 px-3 py-2
+                 rounded
+                 text-left text-sm
+                 break-words
+                 hover:text-white hover:bg-gray-700
+                 transition duration-200"
+        >
+          EEI-1909 – Introduction to Java LAB Report
+        </button>
+
+        <button
+          class="w-full
+                 bg-gray-300
+                 px-3 py-2
+                 rounded
+                 text-left text-sm
+                 break-words
+                 hover:text-white hover:bg-gray-700
+                 transition duration-200"
+        >
+          AMD-5680 – Introduction to Python
+        </button>
+
+        <button
+          class="w-full
+                 bg-gray-300
+                 px-3 py-2
+                 rounded
+                 text-left text-sm
+                 break-words
+                 hover:text-white hover:bg-gray-700
+                 transition duration-200"
+        >
+          DDK-0097 – Mathematical Operations
+        </button>
+
       </div>
     </div>
 

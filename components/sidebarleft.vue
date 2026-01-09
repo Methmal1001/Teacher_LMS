@@ -1,35 +1,78 @@
 <template>
-  <aside class="w-85 bg-gray-800 text-gray-100 p-4 flex flex-col space-y-4">
-    <!-- <nav>
-      <ul class="space-y-3">
-        <li class="hover:bg-gray-700 px-3 py-2 rounded cursor-pointer">Dashboard</li>
-        <li class="hover:bg-gray-700 px-3 py-2 rounded cursor-pointer">My Courses</li>
-      </ul>
-    </nav> -->
-    <div class="bg-gray-200 border-lg p-5 text-gray-600 rounded-lg">
-      <div class="font-bold">Dashboard</div>
-      <div class="py-2">My Courses</div>
-      <div class="ml-5">
-        <div class="py-2 hover:text-blue-500 cursor-pointer">
-          <button class="bg-blue-300 px-2 py-1 rounded hover:text-white hover:bg-blue-700 transition duration-200 w-64 text-left break-words">
-            <a href="#">ABC-1019-Introduction to ABC</a>
-          </button>
-        </div>
-        <div class="py-2 hover:text-blue-500">
-          <button class="bg-blue-300 px-2 py-1 rounded hover:text-white hover:bg-blue-700 transition duration-200 w-64 text-left break-words">
-            <a href="#">EEI-1909-Introduction to Java</a>
-          </button>
-        </div>
-        <div class="py-2 hover:text-blue-500">
-          <button class="bg-blue-300 px-2 py-1 rounded hover:text-white hover:bg-blue-700 transition duration-200 w-64 text-left break-words">
-            <a href="#">AMD-5680-Introduction to Python</a>
-          </button>
-        </div>
-        <div class="py-2 hover:text-blue-500">
-          <button class="bg-blue-300 px-2 py-1 rounded hover:text-white hover:bg-blue-700 transition duration-200 w-64 text-left break-words">
-            <a href="#">DDK-0097-Mathematical Operations</a>
-          </button>
-        </div>
+  <aside
+    class="w-full lg:w-64
+           bg-gray-800 text-gray-100
+           p-3 sm:p-4
+           flex flex-col space-y-4"
+  >
+
+    <!-- Card -->
+    <div class="bg-gray-200 p-4 sm:p-5 text-gray-700 rounded-lg">
+
+      <!-- Title -->
+      <div class="font-bold text-lg mb-2">
+        Dashboard
+      </div>
+
+      <div class="text-sm font-medium mb-3">
+        My Courses
+      </div>
+
+      <!-- Course List -->
+      <div class="space-y-2">
+
+        <button
+          class="w-full
+                 bg-blue-300
+                 px-3 py-2
+                 rounded
+                 text-left text-sm
+                 break-words
+                 hover:text-white hover:bg-blue-700
+                 transition duration-200"
+        >
+          ABC-1019 – Introduction to ABC
+        </button>
+
+        <button
+          class="w-full
+                 bg-blue-300
+                 px-3 py-2
+                 rounded
+                 text-left text-sm
+                 break-words
+                 hover:text-white hover:bg-blue-700
+                 transition duration-200"
+        >
+          EEI-1909 – Introduction to Java
+        </button>
+
+        <button
+          class="w-full
+                 bg-blue-300
+                 px-3 py-2
+                 rounded
+                 text-left text-sm
+                 break-words
+                 hover:text-white hover:bg-blue-700
+                 transition duration-200"
+        >
+          AMD-5680 – Introduction to Python
+        </button>
+
+        <button
+          class="w-full
+                 bg-blue-300
+                 px-3 py-2
+                 rounded
+                 text-left text-sm
+                 break-words
+                 hover:text-white hover:bg-blue-700
+                 transition duration-200"
+        >
+          DDK-0097 – Mathematical Operations
+        </button>
+
       </div>
     </div>
 

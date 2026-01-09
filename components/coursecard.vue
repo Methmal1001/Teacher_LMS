@@ -17,11 +17,13 @@
   </div>
 </template>
 
-<script setup>
-defineProps({
+<script >
+export default {
+  props: {
   course: {
     type: Object,
     required: true
   }
-})
+}
+}
 </script>
