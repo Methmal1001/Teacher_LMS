@@ -2,7 +2,7 @@
   <header class="bg-gray-900 text-white flex justify-between items-center px-6 py-4 shadow-md">
     <!-- Left side -->
     <div class="text-2xl font-bold">
-      My Academy
+      <a href="/">My Academy</a>
     </div>
 
     <!-- Right side -->
