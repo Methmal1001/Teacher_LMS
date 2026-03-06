@@ -6,7 +6,7 @@
     <!-- Course Details -->
     <div class="flex-1 w-full">
       <h3 class="font-semibold text-lg mb-1">{{ course.name }}</h3>
-      <p class="text-sm text-gray-500 mb-2">Course ID: {{ course.id }}</p>
+      <p class="text-sm text-gray-500 mb-2">Course Code: {{ course.id }}</p>
 
       <!-- Progress Bar -->
       <div class="w-full lg:[width:20rem] bg-gray-200 h-3 rounded-full">

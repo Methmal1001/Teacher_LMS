@@ -3,6 +3,11 @@
 </template>
 
 <script>
+definePageMeta({
+  layout: 'adminlayout', 
+  title: 'Admin Dashboard'
+});
+
 export default {
 
 }

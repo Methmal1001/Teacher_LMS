@@ -1,5 +1,5 @@
 <template>
-  <aside class="w-full lg:[width:23rem] bg-gray-800 text-gray-100 p-3 sm:p-4 flex flex-col space-y-4">
+  <aside class="w-full w-full lg:w-[18rem] 2xl:w-[25rem] text-gray-100 p-3 sm:p-4 flex flex-col space-y-4">
 
     <!-- Card -->
     <div class="bg-gray-200 p-4 sm:p-5 text-gray-700 rounded-lg">

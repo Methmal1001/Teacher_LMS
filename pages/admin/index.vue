@@ -40,10 +40,10 @@
         <p class="text-gray-500 text-sm text-center mt-2">View, add, or update student info</p>
       </div>
 
-      <!-- Marks Management -->
+      <!-- Assignments Management -->
       <div
         class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center justify-center hover:shadow-xl transition cursor-pointer"
-        @click="navigateTo('adminmarksmgt')"
+        @click="navigateTo('adminassignmentmgt')"
       >
         <div class="bg-yellow-100 p-4 rounded-full mb-4">
           <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -51,8 +51,8 @@
               d="M11 17h2M12 11v6m0 0l-3-3m3 3l3-3M4 7h16M4 7v12a2 2 0 002 2h12a2 2 0 002-2V7M4 7l8-4 8 4" />
           </svg>
         </div>
-        <h2 class="text-lg font-semibold text-gray-800">Marks Management</h2>
-        <p class="text-gray-500 text-sm text-center mt-2">Manage student marks and grades</p>
+        <h2 class="text-lg font-semibold text-gray-800">Assignments Management</h2>
+        <p class="text-gray-500 text-sm text-center mt-2">Manage student assignments and grades</p>
       </div>
 
       <!-- Settings -->
@@ -74,20 +74,23 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { useRouter } from 'vue-router'
 
-export default {
-  setup() {
-    const router = useRouter()
-    const navigateTo = (page) => {
-      router.push(`/admin/${page}`)
-    }
-    return { navigateTo }
-  }
+definePageMeta({
+  layout: 'adminlayout', 
+  title: 'Admin Dashboard'
+})
+
+const router = useRouter()
+
+const navigateTo = (page) => {
+  if (!page) return
+  router.push(`/admin/${page}`)
 }
 </script>
 
+
 <style scoped>
-/* Optional: smooth shadow effect */
+
 </style>
