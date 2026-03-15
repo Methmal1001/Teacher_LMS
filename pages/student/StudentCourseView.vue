@@ -58,7 +58,7 @@
             <!-- Papers -->
             <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer">
                 <div @click="toggleSection('papers')" class="flex justify-between items-center">
-                    <span class="font-semibold text-lg ">Papers</span>
+                    <span class="font-semibold text-lg">Papers</span>
                     <span>{{ openSection === 'papers' ? '▲' : '▼' }}</span>
                 </div>
                 <div class="mt-3" v-if="openSection === 'papers'">
@@ -66,14 +66,14 @@
                 </div>
             </div>
 
-            <!-- Quizzes -->
-            <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer">
-                <div @click="toggleSection('quizzes')" class="flex justify-between items-center">
-                    <span class="font-semibold text-lg ">Quizzes</span>
-                    <span>{{ openSection === 'quizzes' ? '▲' : '▼' }}</span>
-                </div>
-                <div class="mt-3" v-if="openSection === 'quizzes'">
-                    <CourseQuizzes :coursecode="course_code" :coursename="course_name" />
+            <!-- Quizzes — navigates to coursequiz page -->
+            <div
+                class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 cursor-pointer"
+                @click="goToQuizzes"
+            >
+                <div class="flex justify-between items-center">
+                    <span class="font-semibold text-lg">Quizzes</span>
+                    <span>→</span>
                 </div>
             </div>
 
@@ -83,13 +83,12 @@
 
 <script>
 import { ref } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import CourseIntro from '~/components/student/courseintro.vue'
 import CourseVedio from '~/components/student/coursevedio.vue'
 import CourseNotes from '~/components/student/coursenote.vue'
 import CourseAssignment from '~/components/student/courseassignment.vue'
 import CoursePapers from '~/components/student/coursepaper.vue'
-import CourseQuizzes from '~/components/student/coursequizzes.vue'
 
 export default {
     components: {
@@ -98,11 +97,11 @@ export default {
         CourseNotes,
         CourseAssignment,
         CoursePapers,
-        CourseQuizzes,
     },
 
     setup() {
         const route = useRoute()
+        const router = useRouter()
 
         // Course info from query params
         const course_code = route.query.course_code || 'N/A'
@@ -115,19 +114,31 @@ export default {
             openSection.value = openSection.value === section ? null : section
         }
 
+        // Navigate to the Quizzes page, passing course details
+        const goToQuizzes = () => {
+            router.push({
+                path: '/student/coursequiz',
+                query: {
+                    course_code,
+                    course_name,
+                    course_description,
+                }
+            })
+        }
+
         return {
             course_code,
             course_name,
             course_description,
             openSection,
-            toggleSection
+            toggleSection,
+            goToQuizzes,
         }
     }
 }
 </script>
 
 <style scoped>
-/* Smooth hover effect */
 div.cursor-pointer:hover {
     transform: scale(1.01);
     transition: transform 0.2s ease;
